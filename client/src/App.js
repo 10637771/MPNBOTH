@@ -30,7 +30,7 @@ if(!login)
 }
 }
 const getTodos=async ()=>{
-  const data=await fetch(api_base+`/task/todo/${searchParams.get('email')}`).then(res=>res.json());
+  const data=await fetch(process.env.render_url+`/task/todo/${searchParams.get('email')}`).then(res=>res.json());
   if(data)
   {
      setTodos(data);
@@ -38,19 +38,19 @@ const getTodos=async ()=>{
 }
 
 const addTodo=async ()=>{
-  const data=await fetch(api_base+`/task/todo/new/${searchParams.get('email')}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:newTodo})})
+  const data=await fetch(process.env.render_url+`/task/todo/new/${searchParams.get('email')}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:newTodo})})
   .then(res=>res.json());
   setnewTodo("");
   setpopupActive(false);
 }
 
 const deleteTodos=async (id)=>{
-  const data=await fetch(api_base+`/task/todo/delete/${id}/${searchParams.get('email')}`,{method:'DELETE'}).then(res=>res.json());
+  const data=await fetch(process.env.render_url+`/task/todo/delete/${id}/${searchParams.get('email')}`,{method:'DELETE'}).then(res=>res.json());
   
   setTodos(todos=>todos.filter(todo=>todo._id!==data._id));
 }
 const completeTodos=async (todoId)=>{
-  const data= await fetch(api_base+`/task/todo/complete/${todoId}/${searchParams.get('email')}`,{method:'put',headers:{'Content-Type':'application/json'}}).then(resp=>resp.json());
+  const data= await fetch(process.env.render_url+`/task/todo/complete/${todoId}/${searchParams.get('email')}`,{method:'put',headers:{'Content-Type':'application/json'}}).then(resp=>resp.json());
  
   setTodos(todos=>todos.map(todo=>{
     if(todo._id===data._id)

@@ -4,7 +4,8 @@ import styles from '../Login/login.module.css'
 
 import Cookies from 'universal-cookie';
 
-const api_base='http://localhost:3001/';
+
+const api_base=process.env.render_url;
 
 function Login()
 {

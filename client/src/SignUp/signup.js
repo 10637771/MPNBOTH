@@ -15,7 +15,7 @@ const [confirmpassword,setconfirmpassword]=useState('');
 const [error,seterror]=useState('');
 
 const addUser=async (e)=>{
-  const user=await fetch(api_base+'createuser',{method:'POST',headers:{'Content-Type':"application/json"},body:JSON.stringify({name:name,email:email,password:password,confirmpassword:confirmpassword})}).then(res=>res.json());
+  const user=await fetch(process.env.render_url+'/createuser',{method:'POST',headers:{'Content-Type':"application/json"},body:JSON.stringify({name:name,email:email,password:password,confirmpassword:confirmpassword})}).then(res=>res.json());
   console.log(user.error);
   if(user.error)
    seterror(user.message);
