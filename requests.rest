@@ -1,0 +1,27 @@
+Get http://localhost:3001/task/todo
+
+###
+POST  http://localhost:3001/task/todo/new
+Content-Type: application/json
+
+{
+    "text":"get the bread",
+    "complete":false,
+    "timestamp":"123"
+}
+
+###
+DELETE   http://localhost:3001/task/todo/delete/
+###
+PUT    http://localhost:3001/task/todo/complete/6536c832ef94764dc7bc3ad6
+
+###
+POST http://localhost:3001/createuser
+Content-Type: application/json
+
+{
+    "name":"akshay",
+    "email":"akshaygupta42@live.com",
+    "password":"Coldblot@70",
+    "confirmpassword":"Coldblot@70"
+}
