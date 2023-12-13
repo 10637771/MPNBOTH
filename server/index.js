@@ -7,13 +7,13 @@ import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 const app=express();
 
-const allowedOrigins = [
-    'http://localhost:3000', // Your frontend
-    'http://localhost:3001', // Your backend
-  ];
+// const allowedOrigins = [
+//     'http://localhost:3000', // Your frontend
+//     'http://localhost:3001', // Your backend
+//   ];
   
 app.use(cookieParser());
-app.use(cors({credentials:true,origin:allowedOrigins}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 dotenv.config({path:'../server/config.env'});

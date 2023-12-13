@@ -2,7 +2,7 @@ import React, { useEffect,useState } from "react";
 import '../SignUp/signup.css';
 import { useNavigate } from 'react-router-dom';
 
-const api_base='http://localhost:3001/';
+const api_base='https://nodejsbackend-y0x6.onrender.com';
 
 function Signup()
 {
@@ -15,7 +15,8 @@ const [confirmpassword,setconfirmpassword]=useState('');
 const [error,seterror]=useState('');
 
 const addUser=async (e)=>{
-  const user=await fetch(process.env.render_url+'/createuser',{method:'POST',headers:{'Content-Type':"application/json"},body:JSON.stringify({name:name,email:email,password:password,confirmpassword:confirmpassword})}).then(res=>res.json());
+   console.log(process.env.REACT_APP_render_url);
+  const user=await fetch(api_base+'/createuser',{method:'POST',headers:{'Content-Type':"application/json"},body:JSON.stringify({name:name,email:email,password:password,confirmpassword:confirmpassword})}).then(res=>res.json());
   console.log(user.error);
   if(user.error)
    seterror(user.message);

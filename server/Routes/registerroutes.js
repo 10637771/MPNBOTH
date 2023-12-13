@@ -15,7 +15,7 @@ const allowedOrigins = [
     'http://localhost:3001', // Your backend
   ];
 
-router.use(cors({credentials:true,origin:allowedOrigins}));
+router.use(cors());
 
 //To create the user
 router.post('/createuser',async (req,res)=>{

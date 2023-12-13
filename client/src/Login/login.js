@@ -5,7 +5,7 @@ import styles from '../Login/login.module.css'
 import Cookies from 'universal-cookie';
 
 
-const api_base=process.env.render_url;
+const api_base='https://nodejsbackend-y0x6.onrender.com/';
 
 function Login()
 {
