@@ -1,9 +1,17 @@
 import userregistermodel from '../Model/userregistermodel.js';
 import express from 'express';
+import cors from "cors";
+
+const allowedOrigins = [
+  'http://localhost:3000', // Your frontend
+  'http://localhost:3001', // Your backend
+];
 
 const router=express.Router();
 
 router.use(express.json());
+router.use(cors());
+
 
 router.get('/todo/:id',async (req,res)=>{
   const id=req.params.id;

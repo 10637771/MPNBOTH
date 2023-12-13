@@ -19,7 +19,7 @@ const [error,seterror]=useState('');
 
 const loginUser=async (e)=>{
   
-  fetch(api_base+`fetchusers?email=${email}&pass=${password}`,{headers:{'Content-Type':'application/json'},credentials:'include'}).then(e=>e.json()).then(data=>{
+  fetch(api_base+`fetchusers?email=${email}&pass=${password}`,{headers:{'Content-Type':'application/json'}}).then(e=>e.json()).then(data=>{
    if(data)
    {
       console.log(data);
